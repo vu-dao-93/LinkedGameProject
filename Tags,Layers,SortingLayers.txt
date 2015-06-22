@@ -1,0 +1,6 @@
+-layers: Ground
+check collision to jump
+-sorting layers:
+*Background: render 1st
+*Foreground: render 2nd (on top Background)
+*Objects: render 3rd (on top Foreground and Background)

@@ -1,0 +1,132 @@
+fileFormatVersion: 2
+guid: c74566325d31e8d419c37848d6249895
+timeCreated: 1434893578
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Player1
+    21300002: Player2
+    21300004: Background1
+    21300006: Linked_3
+    21300008: Ground1
+    21300010: Ground2
+    21300012: Background2
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Player1
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 3740
+        width: 201
+        height: 200
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Player2
+      rect:
+        serializedVersion: 2
+        x: 669
+        y: 3741
+        width: 198
+        height: 198
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Background1
+      rect:
+        serializedVersion: 2
+        x: 2130
+        y: 3585
+        width: 1914
+        height: 390
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Linked_3
+      rect:
+        serializedVersion: 2
+        x: 4090
+        y: 3626
+        width: 6
+        height: 76
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ground1
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 3446
+        width: 1917
+        height: 144
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Ground2
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 3219
+        width: 1919
+        height: 146
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Background2
+      rect:
+        serializedVersion: 2
+        x: 2128
+        y: 3004
+        width: 1919
+        height: 387
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
