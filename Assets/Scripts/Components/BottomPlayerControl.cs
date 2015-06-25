@@ -3,9 +3,10 @@ using System.Collections;
 
 public class BottomPlayerControl : MonoBehaviour {
 
-	float moveSpeed = 300f;
+	float moveSpeed = 200f;
 	float jumpForce = 250f;
 	public Transform bottomGroundCheck;
+	public GameObject bottomInventory;
 	bool grounded = false;
 	bool jump = false;
 	
@@ -44,5 +45,11 @@ public class BottomPlayerControl : MonoBehaviour {
 			// Make sure the player can't jump again until the jump conditions from Update are satisfied.
 			jump = false;
 		}
+	}
+
+	void OnTriggerEnter2D (Collider2D item)
+	{
+		bottomInventory.GetComponent<Inventory> ().AddToInventory (item);
+		Destroy (item.gameObject);
 	}
 }

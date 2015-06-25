@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class TopPlayerControl : MonoBehaviour {
 
-	float moveSpeed = 300f;
+	float moveSpeed = 200f;
 	float jumpForce = 250f;
 	public Transform topGroundCheck;
+	public GameObject topInventory;
 	bool grounded = false;
 	bool jump = false;
 	
@@ -44,5 +46,11 @@ public class TopPlayerControl : MonoBehaviour {
 			// Make sure the player can't jump again until the jump conditions from Update are satisfied.
 			jump = false;
 		}
+	}
+
+	void OnTriggerEnter2D (Collider2D item)
+	{
+		topInventory.GetComponent<Inventory> ().AddToInventory (item);
+		Destroy (item.gameObject);
 	}
 }
