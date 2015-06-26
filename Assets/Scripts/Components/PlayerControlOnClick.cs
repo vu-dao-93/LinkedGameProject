@@ -14,22 +14,23 @@ public class PlayerControlOnClick : MonoBehaviour {
 		if (Input.GetMouseButtonDown (0))
 		{
 			Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-			StartCoroutine(MovePlayer(mousePosition));
+			StopCoroutine("MovePlayer");
+			StartCoroutine("MovePlayer", mousePosition);
 		}
 	}
 
 	IEnumerator MovePlayer (Vector3 endPosition)
 	{
 		Vector3 targetPosition = new Vector3 (endPosition.x, gameObject.transform.position.y, gameObject.transform.position.z);
-		while (isMoving == false)
-		{
+		//while (isMoving == false)
+		//{
 			while (Vector3.Distance(gameObject.transform.position, targetPosition) > 0.05f)
 			{
 				isMoving = true;
 				gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, targetPosition, Time.deltaTime * moveSpeed);
 				yield return null;
 			}
-		}
+		//}
 		isMoving = false;
 	}
 
