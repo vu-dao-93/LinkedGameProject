@@ -49,7 +49,6 @@
      <Compile Include="Assets\Scripts\Components\Inventory.cs" />
      <Compile Include="Assets\Scripts\Components\ItemInformation.cs" />
      <Compile Include="Assets\Scripts\Components\PlayerControlOnClick.cs" />
-     <Compile Include="Assets\Scripts\Components\SwitchPlayer.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Programs/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

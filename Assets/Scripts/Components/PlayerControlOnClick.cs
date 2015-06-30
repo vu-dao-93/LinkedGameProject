@@ -2,41 +2,56 @@
 using System.Collections;
 
 public class PlayerControlOnClick : MonoBehaviour {
-
-	public GameObject inventory;
-	bool isMoving = false;
+	
+	//public GameObject inventory;
 	public float moveSpeed;
 	[HideInInspector]
 	public Vector3 mousePosition;
-	
+	[SerializeField]
+	GameObject topPlayer;
+	[SerializeField]
+	GameObject botPlayer;
+	GameObject selectedPlayer;
+	/*
+	GameObject player;
+	GameObject otherPlayer;
+	public static Vector3 selectedPosition;
+
+	void Awake () {
+		if (player == null)
+			player = gameObject;
+		else
+			otherPlayer = gameObject;
+	}
+	*/
+
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetMouseButtonDown (0))
 		{
 			Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-			StopCoroutine("MovePlayer");
-			StartCoroutine("MovePlayer", mousePosition);
+			if ((Input.mousePosition.y - Screen.height/2) > 0)
+			{
+				selectedPlayer = topPlayer;
+				StopCoroutine("MovePlayer");
+				StartCoroutine("MovePlayer", mousePosition);
+			}
+			else
+			{
+				selectedPlayer = botPlayer;
+				StopCoroutine("MovePlayer");
+				StartCoroutine("MovePlayer", mousePosition);
+			}
 		}
 	}
 
 	IEnumerator MovePlayer (Vector3 endPosition)
 	{
-		Vector3 targetPosition = new Vector3 (endPosition.x, gameObject.transform.position.y, gameObject.transform.position.z);
-		//while (isMoving == false)
-		//{
-			while (Vector3.Distance(gameObject.transform.position, targetPosition) > 0.05f)
-			{
-				isMoving = true;
-				gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, targetPosition, Time.deltaTime * moveSpeed);
-				yield return null;
-			}
-		//}
-		isMoving = false;
-	}
-
-	void OnTriggerEnter2D (Collider2D item)
-	{
-		inventory.GetComponent<Inventory> ().AddToInventory (item);
-		Destroy (item.gameObject);
-	}
+		Vector3 targetPosition = new Vector3 (endPosition.x, selectedPlayer.transform.position.y, selectedPlayer.transform.position.z);
+		while (Vector3.Distance(selectedPlayer.transform.position, targetPosition) > 0.05f)
+		{
+			selectedPlayer.transform.position = Vector3.MoveTowards(selectedPlayer.transform.position, targetPosition, Time.deltaTime * moveSpeed);
+			yield return null;
+		}
+	}	
 }
