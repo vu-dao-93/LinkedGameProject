@@ -14,17 +14,17 @@ public class Inventory : MonoBehaviour {
 		// Clear out all the sprite
 		for (int i = 0; i < slots.Count; i++)
 		{
-			slots[i].GetComponent<RawImage>().texture = null;
+			slots[i].GetComponent<Image>().sprite = null;
 		}
 	}
 
-	public void AddToInventory (string item, Texture2D icon)
+	public void AddToInventory (string item, Sprite icon)
 	{
 		for (int i = 0; i < slots.Count; i++)
 		{
-			if (slots[i].GetComponent<RawImage>().texture == null)
+			if (slots[i].GetComponent<Image>().sprite == null)
 			{
-				slots[i].GetComponent<RawImage>().texture = icon;
+				slots[i].GetComponent<Image>().sprite = icon;
 				break;
 			}
 		}

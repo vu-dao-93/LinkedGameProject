@@ -12,18 +12,6 @@ public class PlayerControlOnClick : MonoBehaviour {
 	[SerializeField]
 	GameObject botPlayer;
 	GameObject selectedPlayer;
-	/*
-	GameObject player;
-	GameObject otherPlayer;
-	public static Vector3 selectedPosition;
-
-	void Awake () {
-		if (player == null)
-			player = gameObject;
-		else
-			otherPlayer = gameObject;
-	}
-	*/
 
 	// Update is called once per frame
 	void Update () {

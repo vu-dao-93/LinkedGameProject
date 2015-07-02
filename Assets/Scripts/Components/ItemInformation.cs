@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ItemInformation : MonoBehaviour {
 	public string itemName;
-	public Texture2D itemIcon;
+	public Sprite itemIcon;
 	public string itemDescription;
 
 	bool isClicked = false;
