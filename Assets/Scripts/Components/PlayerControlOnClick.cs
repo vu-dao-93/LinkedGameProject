@@ -1,34 +1,43 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 using System.Collections;
 
 public class PlayerControlOnClick : MonoBehaviour {
-	
+
+	public static bool uiClicked = false;
 	//public GameObject inventory;
 	public float moveSpeed;
+
 	[HideInInspector]
 	public Vector3 mousePosition;
+
 	[SerializeField]
 	GameObject topPlayer;
+
 	[SerializeField]
 	GameObject botPlayer;
+
 	GameObject selectedPlayer;
 
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetMouseButtonDown (0))
 		{
-			Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-			if ((Input.mousePosition.y - Screen.height/2) > 0)
+			if (!EventSystem.current.IsPointerOverGameObject())
 			{
-				selectedPlayer = topPlayer;
-				StopCoroutine("MovePlayer");
-				StartCoroutine("MovePlayer", mousePosition);
-			}
-			else
-			{
-				selectedPlayer = botPlayer;
-				StopCoroutine("MovePlayer");
-				StartCoroutine("MovePlayer", mousePosition);
+				Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+				if ((Input.mousePosition.y - Screen.height/2) > 0)
+				{
+					selectedPlayer = topPlayer;
+					StopCoroutine("MovePlayer");
+					StartCoroutine("MovePlayer", mousePosition);
+				}
+				else
+				{
+					selectedPlayer = botPlayer;
+					StopCoroutine("MovePlayer");
+					StartCoroutine("MovePlayer", mousePosition);
+				}
 			}
 		}
 	}

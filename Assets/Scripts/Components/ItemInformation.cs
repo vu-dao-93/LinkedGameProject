@@ -2,9 +2,6 @@
 using System.Collections;
 
 public class ItemInformation : MonoBehaviour {
-	public string itemName;
-	public Sprite itemIcon;
-	public string itemDescription;
 
 	bool isClicked = false;
 
@@ -20,8 +17,7 @@ public class ItemInformation : MonoBehaviour {
 	{
 		if (isClicked == true)
 		{
-			isClicked = false;
-			inventory.GetComponent<Inventory>().AddToInventory(itemName, itemIcon);
+			inventory.GetComponent<Inventory>().AddToInventory(gameObject.name);
 			Destroy(gameObject);
 		}
 	}

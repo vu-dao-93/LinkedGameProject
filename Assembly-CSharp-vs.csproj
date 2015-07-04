@@ -47,8 +47,12 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Components\Inventory.cs" />
+     <Compile Include="Assets\Scripts\Components\ItemDatabase.cs" />
      <Compile Include="Assets\Scripts\Components\ItemInformation.cs" />
+     <Compile Include="Assets\Scripts\Components\ItemNotPickable.cs" />
+     <Compile Include="Assets\Scripts\Components\ItemPickable.cs" />
      <Compile Include="Assets\Scripts\Components\PlayerControlOnClick.cs" />
+     <Compile Include="Assets\Scripts\Components\Slots.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
