@@ -3,19 +3,17 @@ using System.Collections;
 
 public class ItemInformation : MonoBehaviour {
 
-	bool isClicked = false;
-
 	[SerializeField]
 	private GameObject inventory;
 
 	void OnMouseDown()
 	{
-		isClicked = true;
+		PlayerControlOnClick.itemClicked = this;
 	}
 
 	void OnTriggerStay2D()
 	{
-		if (isClicked == true)
+		if (PlayerControlOnClick.itemClicked == this)
 		{
 			inventory.GetComponent<Inventory>().AddToInventory(gameObject.name);
 			Destroy(gameObject);

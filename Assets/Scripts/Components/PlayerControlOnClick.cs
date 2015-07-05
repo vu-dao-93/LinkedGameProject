@@ -4,7 +4,8 @@ using System.Collections;
 
 public class PlayerControlOnClick : MonoBehaviour {
 
-	public static bool uiClicked = false;
+	public static ItemInformation itemClicked = null;
+
 	//public GameObject inventory;
 	public float moveSpeed;
 
@@ -29,14 +30,16 @@ public class PlayerControlOnClick : MonoBehaviour {
 				if ((Input.mousePosition.y - Screen.height/2) > 0)
 				{
 					selectedPlayer = topPlayer;
-					StopCoroutine("MovePlayer");
-					StartCoroutine("MovePlayer", mousePosition);
 				}
 				else
 				{
 					selectedPlayer = botPlayer;
-					StopCoroutine("MovePlayer");
-					StartCoroutine("MovePlayer", mousePosition);
+				}
+				StopCoroutine("MovePlayer");
+				StartCoroutine("MovePlayer", mousePosition);
+				RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
+				if (hit.transform.gameObject.GetComponent<ItemInformation> () == null) {
+					itemClicked = null;
 				}
 			}
 		}
