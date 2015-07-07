@@ -4,8 +4,6 @@ using System.Collections;
 
 public class PlayerControlOnClick : MonoBehaviour {
 
-	public static ItemInformation itemClicked = null;
-
 	//public GameObject inventory;
 	public float moveSpeed;
 
@@ -27,6 +25,8 @@ public class PlayerControlOnClick : MonoBehaviour {
 			if (!EventSystem.current.IsPointerOverGameObject())
 			{
 				Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+				// Choose player and move
 				if ((Input.mousePosition.y - Screen.height/2) > 0)
 				{
 					selectedPlayer = topPlayer;
@@ -37,9 +37,15 @@ public class PlayerControlOnClick : MonoBehaviour {
 				}
 				StopCoroutine("MovePlayer");
 				StartCoroutine("MovePlayer", mousePosition);
+
 				RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
+				// Cancel previous item click
 				if (hit.transform.gameObject.GetComponent<ItemInformation> () == null) {
-					itemClicked = null;
+					ItemInformation.itemClicked = null;
+				}
+				if (hit.transform.gameObject.GetComponent<ItemNotPickable> () == null) {
+					print("set null");
+					ItemNotPickable.itemClicked = null;
 				}
 			}
 		}

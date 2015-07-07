@@ -6,18 +6,18 @@ public class ItemNotPickable : MonoBehaviour{
 	public Sprite itemUsed;
 	public string itemDescription;
 
-	bool isClicked = false;
+	public static ItemNotPickable itemClicked = null;
 	[SerializeField]
 	GameObject selectedItemIcon;
 
 	void OnMouseDown()
 	{
-		isClicked = true;
+		itemClicked = this;
 	}
 
 	void OnTriggerStay2D()
 	{
-		if (isClicked)
+		if (itemClicked == this)
 		{
 			for (int i = 0; i < ItemDatabase.instance.itemList.Count; i++)
 			{
@@ -28,10 +28,12 @@ public class ItemNotPickable : MonoBehaviour{
 						if (gameObject.name == ItemDatabase.instance.itemList[i].useableItem[x])
 						{
 							GetComponent<SpriteRenderer>().sprite = itemUsed;
+							break;
 						}
 					}
 				}
 			}
+			selectedItemIcon.GetComponent<SpriteRenderer> ().sprite = null;
 		}
 	}
 }
