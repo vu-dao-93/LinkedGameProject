@@ -3,7 +3,9 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class Slots : MonoBehaviour {
-	
+
+	[SerializeField]
+	Text text;
 	bool isClicked;
 	public GameObject selectedItemIcon;
 
@@ -12,13 +14,14 @@ public class Slots : MonoBehaviour {
 		if (isClicked)
 		{
 			TakeItem();
+			ShowDescription();
 		}
 	}
 
 	void TakeItem ()
 	{
 		Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-		selectedItemIcon.transform.position = new Vector3 (mousePosition.x, mousePosition.y, 0f);
+		selectedItemIcon.transform.position = new Vector3 (mousePosition.x + 0.4f, mousePosition.y - 0.4f, 0f);
 	}
 
 	public void ChangeSprite ()
@@ -30,6 +33,24 @@ public class Slots : MonoBehaviour {
 	public void ItemClicked()
 	{
 		isClicked = true;
+	}
+
+	public void ShowDescription()
+	{
+		for (int i = 0; i < ItemDatabase.instance.itemList.Count; i++)
+		{
+			if (selectedItemIcon.GetComponent<SpriteRenderer> ().sprite != null)
+			{
+				if (selectedItemIcon.GetComponent<SpriteRenderer> ().sprite.name == ItemDatabase.instance.itemList[i].itemName)
+				{
+					text.text = ItemDatabase.instance.itemList[i].itemDescription;
+				}
+			}
+			else
+			{
+				text.text = null;
+			}
+		}
 	}
 	/*
 	public void ChangeColor()
