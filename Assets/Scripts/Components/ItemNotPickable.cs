@@ -10,6 +10,16 @@ public class ItemNotPickable : MonoBehaviour{
 	[SerializeField]
 	GameObject selectedItemIcon;
 
+	void OnMouseOver()
+	{
+		GameManager.GMInstance.mainText.text = itemDescription;
+	}
+
+	void OnMouseExit()
+	{
+		GameManager.GMInstance.mainText.text = null;
+	}
+
 	void OnMouseDown()
 	{
 		itemClicked = this;
@@ -19,13 +29,13 @@ public class ItemNotPickable : MonoBehaviour{
 	{
 		if (itemClicked == this)
 		{
-			for (int i = 0; i < ItemDatabase.instance.itemList.Count; i++)
+			for (int i = 0; i < ItemDatabase.IDInstance.itemList.Count; i++)
 			{
-				if (selectedItemIcon.name == ItemDatabase.instance.itemList[i].itemName)
+				if (selectedItemIcon.name == ItemDatabase.IDInstance.itemList[i].itemName)
 				{
-					for (int x = 0; x < ItemDatabase.instance.itemList[i].useableItem.Length; x++)
+					for (int x = 0; x < ItemDatabase.IDInstance.itemList[i].useableItem.Length; x++)
 					{
-						if (gameObject.name == ItemDatabase.instance.itemList[i].useableItem[x])
+						if (gameObject.name == ItemDatabase.IDInstance.itemList[i].useableItem[x])
 						{
 							GetComponent<SpriteRenderer>().sprite = itemUsed;
 							break;

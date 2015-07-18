@@ -19,11 +19,11 @@ public class Inventory : MonoBehaviour {
 	{
 		Sprite itemIcon = null;
 
-		for (int i = 0; i < ItemDatabase.instance.itemList.Count; i++)
+		for (int i = 0; i < ItemDatabase.IDInstance.itemList.Count; i++)
 		{
-			if (ItemDatabase.instance.itemList[i].itemName == itemName)
+			if (ItemDatabase.IDInstance.itemList[i].itemName == itemName)
 			{
-				itemIcon = ItemDatabase.instance.itemList[i].itemIcon;
+				itemIcon = ItemDatabase.IDInstance.itemList[i].itemIcon;
 			}
 		}
 
