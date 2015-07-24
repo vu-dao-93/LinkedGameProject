@@ -7,17 +7,17 @@ public class ItemNotPickable : MonoBehaviour{
 	public string itemDescription;
 
 	public static ItemNotPickable itemClicked = null;
-	[SerializeField]
-	GameObject selectedItemIcon;
 
 	void OnMouseOver()
 	{
-		GameManager.GMInstance.mainText.text = itemDescription;
+		GameManager.GMInstance.itemOver = true;
+		GameManager.GMInstance.description = itemDescription;
 	}
 
 	void OnMouseExit()
 	{
-		GameManager.GMInstance.mainText.text = null;
+		GameManager.GMInstance.itemOver = false;
+		GameManager.GMInstance.description = null;
 	}
 
 	void OnMouseDown()
@@ -31,7 +31,7 @@ public class ItemNotPickable : MonoBehaviour{
 		{
 			for (int i = 0; i < ItemDatabase.IDInstance.itemList.Count; i++)
 			{
-				if (selectedItemIcon.name == ItemDatabase.IDInstance.itemList[i].itemName)
+				if (GameManager.GMInstance.selectedItemIcon.name == ItemDatabase.IDInstance.itemList[i].itemName)
 				{
 					for (int x = 0; x < ItemDatabase.IDInstance.itemList[i].useableItem.Length; x++)
 					{
@@ -43,7 +43,7 @@ public class ItemNotPickable : MonoBehaviour{
 					}
 				}
 			}
-			selectedItemIcon.GetComponent<SpriteRenderer> ().sprite = null;
+			GameManager.GMInstance.selectedItemIcon.GetComponent<SpriteRenderer> ().sprite = null;
 		}
 	}
 }

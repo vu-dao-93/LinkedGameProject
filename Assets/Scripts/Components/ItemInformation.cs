@@ -10,18 +10,20 @@ public class ItemInformation : MonoBehaviour {
 
 	void OnMouseOver()
 	{
+		GameManager.GMInstance.itemOver = true;
 		for (int i = 0; i < ItemDatabase.IDInstance.itemList.Count; i++)
 		{
 			if (ItemDatabase.IDInstance.itemList[i].itemName == gameObject.name)
 			{
-				GameManager.GMInstance.mainText.text = ItemDatabase.IDInstance.itemList[i].itemDescription;
+				GameManager.GMInstance.description = ItemDatabase.IDInstance.itemList[i].itemDescription;
 			}
 		}
 	}
 
 	void OnMouseExit()
 	{
-		GameManager.GMInstance.mainText.text = null;
+		GameManager.GMInstance.itemOver = false;
+		GameManager.GMInstance.description = null;
 	}
 
 	void OnMouseDown()

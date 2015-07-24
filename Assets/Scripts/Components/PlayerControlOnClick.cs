@@ -44,7 +44,6 @@ public class PlayerControlOnClick : MonoBehaviour {
 					ItemInformation.itemClicked = null;
 				}
 				if (hit.transform.gameObject.GetComponent<ItemNotPickable> () == null) {
-					print("set null");
 					ItemNotPickable.itemClicked = null;
 				}
 			}
