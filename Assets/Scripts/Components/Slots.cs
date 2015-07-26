@@ -32,6 +32,7 @@ public class Slots : MonoBehaviour {
 		isClicked = true;
 	}
 
+	/*
 	public void ShowDesscription()
 	{
 		for (int i = 0; i < ItemDatabase.IDInstance.itemList.Count; i++)
@@ -47,10 +48,10 @@ public class Slots : MonoBehaviour {
 			}
 		}
 	}
-	/*
-	public void ChangeColor()
-	{
-		GetComponent<Image> ().color = Color.gray;
-	}
 	*/
+
+	public void SelectedSlot()
+	{
+		GameManager.GMInstance.selectedSlot = gameObject;
+	}
 }

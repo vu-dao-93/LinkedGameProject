@@ -1,13 +1,19 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using System.Collections;
 
 public class GameManager : MonoBehaviour {
 	public static GameManager GMInstance;
 
+	Vector3 positionBeCheck;	//A varible refer to mouse position in the world used to be checked.
+	[HideInInspector]
+	public GameObject selectedSlot;
 	public GameObject selectedItemIcon;
 	public Text mainText;
+	[HideInInspector]
 	public string description;
+	[HideInInspector]
 	public bool itemOver;
 
 	void Awake()
@@ -16,6 +22,28 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void Update()
+	{
+		DescriptionControl ();
+		TakeMousePosition ();
+		EmptySprite ();
+	}
+
+	void EmptySprite()
+	{
+		if (Vector3.Distance(PlayerControlOnClick.PCInstance.selectedPlayer.transform.position, positionBeCheck) < 0.05f)
+			selectedItemIcon.GetComponent<SpriteRenderer>().sprite = null;
+	}
+
+	void TakeMousePosition()
+	{
+		if (Input.GetMouseButtonDown (0) && !EventSystem.current.IsPointerOverGameObject ())
+		{
+			Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+			positionBeCheck = new Vector3 (mousePosition.x, PlayerControlOnClick.PCInstance.selectedPlayer.transform.position.y, PlayerControlOnClick.PCInstance.selectedPlayer.transform.position.z);
+		}
+	}
+
+	void DescriptionControl()
 	{
 		if (itemOver == false && selectedItemIcon.GetComponent<SpriteRenderer> ().sprite != null)
 		{

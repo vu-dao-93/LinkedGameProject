@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 using System.Collections;
 
 public class PlayerControlOnClick : MonoBehaviour {
+	public static PlayerControlOnClick PCInstance;
 
 	//public GameObject inventory;
 	public float moveSpeed;
@@ -16,7 +17,13 @@ public class PlayerControlOnClick : MonoBehaviour {
 	[SerializeField]
 	GameObject botPlayer;
 
-	GameObject selectedPlayer;
+	[HideInInspector]
+	public GameObject selectedPlayer;
+
+	void Awake()
+	{
+		PCInstance = this;
+	}
 
 	// Update is called once per frame
 	void Update () {
