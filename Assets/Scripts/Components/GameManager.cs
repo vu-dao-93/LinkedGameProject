@@ -30,15 +30,15 @@ public class GameManager : MonoBehaviour {
 
 	void EmptySprite()
 	{
-		if (Vector3.Distance(PlayerControlOnClick.PCInstance.selectedPlayer.transform.position, positionBeCheck) < 0.05f)
-			selectedItemIcon.GetComponent<SpriteRenderer>().sprite = null;
+		if (Vector3.Distance (PlayerControlOnClick.PCInstance.selectedPlayer.transform.position, positionBeCheck) < 0.05f)
+			selectedItemIcon.GetComponent<SpriteRenderer> ().sprite = null;
 	}
 
 	void TakeMousePosition()
 	{
-		if (Input.GetMouseButtonDown (0) && !EventSystem.current.IsPointerOverGameObject ())
+		Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		if (Input.GetMouseButtonDown (0))
 		{
-			Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			positionBeCheck = new Vector3 (mousePosition.x, PlayerControlOnClick.PCInstance.selectedPlayer.transform.position.y, PlayerControlOnClick.PCInstance.selectedPlayer.transform.position.z);
 		}
 	}
