@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class ItemNotPickable : MonoBehaviour{
@@ -38,6 +39,7 @@ public class ItemNotPickable : MonoBehaviour{
 						if (gameObject.name == ItemDatabase.IDInstance.itemList[i].useableItem[x])
 						{
 							GetComponent<SpriteRenderer>().sprite = itemUsed;
+							GameManager.GMInstance.selectedSlot.GetComponent<Image>().sprite = null;
 							break;
 						}
 					}
