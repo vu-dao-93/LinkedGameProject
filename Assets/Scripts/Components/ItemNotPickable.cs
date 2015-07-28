@@ -23,7 +23,8 @@ public class ItemNotPickable : MonoBehaviour{
 
 	void OnMouseDown()
 	{
-		itemClicked = this;
+		if (GameManager.GMInstance.selectedItemIcon.GetComponent<SpriteRenderer>().sprite != null)
+			itemClicked = this;
 	}
 
 	void OnTriggerStay2D()
