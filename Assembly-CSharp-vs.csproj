@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Components\CameraController.cs" />
      <Compile Include="Assets\Scripts\Components\GameManager.cs" />
      <Compile Include="Assets\Scripts\Components\Inventory.cs" />
      <Compile Include="Assets\Scripts\Components\ItemDatabase.cs" />
