@@ -15,41 +15,35 @@ public class Slots : MonoBehaviour {
 		}
 	}
 
+	//selectedItemIcon follow mouse
 	void TakeItem ()
 	{
-		Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		Vector3 mousePosition;
+		if ((Input.mousePosition.y - Screen.height/2) > 0)
+		{
+			mousePosition = PlayerControlOnClick.PCInstance.camList[0].ScreenToWorldPoint(Input.mousePosition);
+		}
+		else
+		{
+			mousePosition = PlayerControlOnClick.PCInstance.camList[1].ScreenToWorldPoint(Input.mousePosition);
+		}
 		GameManager.GMInstance.selectedItemIcon.transform.position = new Vector3 (mousePosition.x + 0.4f, mousePosition.y - 0.4f, 0f);
 	}
 
+	//Change the sprite on selectedItemIcon that show the item clicked
 	public void ChangeSprite ()
 	{
 		GameManager.GMInstance.selectedItemIcon.GetComponent<SpriteRenderer> ().sprite = gameObject.GetComponent<Image> ().sprite;
 		GameManager.GMInstance.selectedItemIcon.name = gameObject.GetComponent<Image> ().sprite.name;
 	}
 
+	//Set isClicked = true
 	public void ItemClicked()
 	{
 		isClicked = true;
 	}
 
-	/*
-	public void ShowDesscription()
-	{
-		for (int i = 0; i < ItemDatabase.IDInstance.itemList.Count; i++)
-		{
-			if (ItemDatabase.IDInstance.itemList[i].itemName == GameManager.GMInstance.selectedItemIcon.name)
-			{
-				GameManager.GMInstance.mainText.text = ItemDatabase.IDInstance.itemList[i].itemDescription;
-				break;
-			}
-			else
-			{
-				GameManager.GMInstance.mainText.text = null;
-			}
-		}
-	}
-	*/
-
+	//Make this slot the selectedSlot
 	public void SelectedSlot()
 	{
 		GameManager.GMInstance.selectedSlot = gameObject;
