@@ -46,6 +46,7 @@ public class ItemNotPickable : MonoBehaviour{
 					}
 				}
 			}
+			itemClicked = null;
 			GameManager.GMInstance.selectedItemIcon.GetComponent<SpriteRenderer> ().sprite = null;
 		}
 	}

@@ -1,3 +1,5 @@
 Base path: D:/Unity/Editor/Data
-Pipe name: \\.\pipe\UnityShaderCompiler-32bit-1-4996
+Pipe name: \\.\pipe\UnityShaderCompiler-32bit-1-1560
 Cmd: getPlatforms
+
+Quitting shader compiler process

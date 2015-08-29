@@ -36,7 +36,17 @@ public class GameManager : MonoBehaviour {
 
 	void TakeMousePosition()
 	{
-		Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		Vector3 mousePosition;
+		if ((Input.mousePosition.y - Screen.height/2) > 0)
+		{
+			mousePosition = PlayerControlOnClick.PCInstance.camList[0].ScreenToWorldPoint(Input.mousePosition);
+			selectedItemIcon.layer = 8;
+		}
+		else
+		{
+			mousePosition = PlayerControlOnClick.PCInstance.camList[1].ScreenToWorldPoint(Input.mousePosition);
+			selectedItemIcon.layer = 9;
+		}
 		if (Input.GetMouseButtonDown (0))
 		{
 			positionBeCheck = new Vector3 (mousePosition.x, PlayerControlOnClick.PCInstance.selectedPlayer.transform.position.y, PlayerControlOnClick.PCInstance.selectedPlayer.transform.position.z);

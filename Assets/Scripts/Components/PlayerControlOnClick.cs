@@ -20,6 +20,8 @@ public class PlayerControlOnClick : MonoBehaviour {
 	[HideInInspector]
 	public GameObject selectedPlayer;
 
+	public Camera[] camList;
+
 	void Awake()
 	{
 		PCInstance = this;
@@ -31,16 +33,16 @@ public class PlayerControlOnClick : MonoBehaviour {
 		{
 			if (!EventSystem.current.IsPointerOverGameObject())
 			{
-				Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
 				// Choose player and move
 				if ((Input.mousePosition.y - Screen.height/2) > 0)
 				{
 					selectedPlayer = topPlayer;
+					mousePosition = camList[0].ScreenToWorldPoint(Input.mousePosition);
 				}
 				else
 				{
 					selectedPlayer = botPlayer;
+					mousePosition = camList[1].ScreenToWorldPoint(Input.mousePosition);
 				}
 				StopCoroutine("MovePlayer");
 				StartCoroutine("MovePlayer", mousePosition);

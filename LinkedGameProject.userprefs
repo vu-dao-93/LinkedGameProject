@@ -1,9 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Components\CameraController.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Components\GameManager.cs">
     <Files>
-      <File FileName="..\2D Platformer Tutorial\Assets\Scripts\CameraFollow.cs" Line="66" Column="3" />
-      <File FileName="Assets\Scripts\Components\CameraController.cs" Line="24" Column="3" />
+      <File FileName="Assets\Scripts\Components\ItemNotPickable.cs" Line="49" Column="23" />
+      <File FileName="Assets\Scripts\Components\CameraController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Components\GameManager.cs" Line="48" Column="30" />
+      <File FileName="Assets\Scripts\Components\ItemInformation.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Components\PlayerControlOnClick.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
