@@ -13,6 +13,7 @@ public class PlayerControlOnClick : MonoBehaviour {
 
 	[SerializeField]
 	GameObject topPlayer;
+	Animator topAnimator;
 
 	[SerializeField]
 	GameObject botPlayer;
@@ -25,6 +26,7 @@ public class PlayerControlOnClick : MonoBehaviour {
 	void Awake()
 	{
 		PCInstance = this;
+		topAnimator = topPlayer.GetComponent<Animator> ();
 	}
 
 	// Update is called once per frame
@@ -38,6 +40,14 @@ public class PlayerControlOnClick : MonoBehaviour {
 				{
 					selectedPlayer = topPlayer;
 					mousePosition = camList[0].ScreenToWorldPoint(Input.mousePosition);
+					// Check and flip player
+					if ( (mousePosition.x - selectedPlayer.transform.position.x) > 0 && facingLeft ) {
+						FlipPlayer ();
+					}
+					else if ( (mousePosition.x - selectedPlayer.transform.position.x) < 0 && !facingLeft ) {
+						FlipPlayer ();
+					}
+					topAnimator.SetBool("Run", true);
 				}
 				else
 				{
@@ -67,5 +77,15 @@ public class PlayerControlOnClick : MonoBehaviour {
 			selectedPlayer.transform.position = Vector3.MoveTowards(selectedPlayer.transform.position, targetPosition, Time.deltaTime * moveSpeed);
 			yield return null;
 		}
-	}	
+		topAnimator.SetBool("Run", false);
+	}
+
+	bool facingLeft;
+
+	void FlipPlayer () {
+		facingLeft = !facingLeft;
+		Vector3 theScale = selectedPlayer.transform.localScale;
+		theScale.x *= -1;
+		selectedPlayer.transform.localScale = theScale;
+	}
 }
