@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour {
 
 	void Update()
 	{
+		print (itemOver);
 		DescriptionControl ();
 		TakeMousePosition ();
 		EmptySprite ();
